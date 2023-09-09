@@ -9,3 +9,30 @@ groups:
         annotations:
           summary: "Instance {{ $labels.instance }} down"
           description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 5 minutes."
+      ################ CPU Usage High
+      - alert: Cpu Usage High
+        expr: 100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[2m])) * 100) > 10
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "CPU Usage (instance {{ $labels.instance }})"
+          description: "CPU Usage is more than 10%\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
+      ################ Ram Usage High
+      - alert: Ram Usage High
+        expr: 100 - ((node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100)
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Ram Usage (instance {{ $labels.instance }})"
+          description: "Ram Usage is more than 10%\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
+      ################ Disk Usage 
+      - alert: DiskSpaceUsage
+        expr: 100 - (100 * ((node_filesystem_avail_bytes{mountpoint="/",fstype!="rootfs"} )  / (node_filesystem_size_bytes{mountpoint="/",fstype!="rootfs"}) )) > 90
+        for: 1m
+        labels:
+          severity: error
+        annotations:
+          summary: "Disk Space Usage (instance {{ $labels.instance }})"
+          description: "Disk Space on Drive is used more than 95%\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
