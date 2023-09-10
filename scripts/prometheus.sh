@@ -12,7 +12,7 @@ sudo touch /etc/prometheus/prometheus.rules.yml
 # Assign ownership of the files above to prometheus user
 sudo chown -R prometheus:prometheus /etc/prometheus
 sudo chown prometheus:prometheus /var/lib/prometheus
-
+ 
 # Download prometheus and copy utilities to where they should be in the filesystem
 #VERSION=2.2.1
 VERSION=$(curl https://raw.githubusercontent.com/prometheus/prometheus/master/VERSION)

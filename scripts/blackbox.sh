@@ -18,8 +18,8 @@ sudo cp blackbox_exporter-${VERSION}.linux-amd64/blackbox_exporter /usr/local/bi
 sudo chown blackbox_exporter:blackbox_exporter /usr/local/bin/blackbox_exporter
 
 # Populate configuration files
-cat ./blackbox/blackbox.yml | sudo tee /etc/blackbox/blackbox.yml
-cat ./blackbox/blackbox_exporter.service | sudo tee /etc/systemd/system/blackbox_exporter.service
+cat ./exporters/blackbox/blackbox.yml | sudo tee /etc/blackbox/blackbox.yml
+cat ./exporters/blackbox/blackbox_exporter.service | sudo tee /etc/systemd/system/blackbox_exporter.service
 
 # systemd
 sudo systemctl daemon-reload
