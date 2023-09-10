@@ -1,4 +1,4 @@
-# Prometheus Installation Script for Ubuntu 16.04 and 18.04 LTS
+# Prometheus vs Grafana Installation Script for Ubuntu
 
 **Important:** This is a work in progress.
 
@@ -39,6 +39,9 @@ Full installation will install the following:
 * Node Exporter
 * Blackbox Exporter
 * Grafana
+* Push Gateway
+* Loki
+* Promtail
 
 Scripts have many `sudo`s, so before you start the full installation, do:
 
@@ -64,8 +67,10 @@ sudo pwd
 
 just to make sure, `sudo` in scripts won't interrupt you. And to install individual components, use:
 
-* Prometheus: `./prometheus.sh`
-* Alertmanager: `./alertmanager.sh`
-* Node Exporter: `./node.sh`
-* Blackbox Exporter: `./blackbox.sh`
-* Grafana: `./grafana.sh`
+* Prometheus: `./scripts/prometheus.sh`
+* Alertmanager: `./scripts/alertmanager.sh`
+* Node Exporter: `./scripts/node_exporter.sh`
+* Blackbox Exporter: `./scripts/blackbox.sh`
+* Grafana: `./scripts/grafana.sh`
+* Loki: `./scripts/loki.sh`
+* Promtail: `./scripts/promtail.sh`

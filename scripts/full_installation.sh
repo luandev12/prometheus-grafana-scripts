@@ -10,10 +10,13 @@
 # ./full_installation.sh
 
 ./prometheus.sh
-./node.sh
+./node_exporter.sh
 ./blackbox.sh
+./pushgateway.sh
 ./alertmanager.sh
 ./grafana.sh
+./loki.sh
+./promtail.sh
 
 echo "Installation complete."
 echo "Visit port 3000 to view grafana dashboards."
