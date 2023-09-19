@@ -1,9 +1,13 @@
 #!/bin/bash
 
-./prometheus_uninstall.sh
-./node_uninstall.sh
-./blackbox_uninstall.sh
-./alertmanager_uninstall.sh
+bash ./uninstall/prometheus_uninstall.sh
+bash ./uninstall/node_uninstall.sh
+bash ./uninstall/blackbox_uninstall.sh
+bash ./uninstall/alertmanager_uninstall.sh
+bash ./uninstall/grafana_uninstall.sh
+bash ./uninstall/loki_uninstall.sh
+bash ./uninstall/promtail_uninstall.sh
+bash ./uninstall/pushgateway_uninstall.sh
 
 # Uninstall grafana
 # ???
